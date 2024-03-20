@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            opacity: 0.8;
+        }
+        .book {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        #registration-form, #login-form, #book-list {
+            display: none;
+        }
+    </style>
+    <script>
+        function showRegistrationForm() {
+            document.getElementById('registration-form').style.display = 'block';
+            document.getElementById('login-form').style.display = 'none';
+            document.getElementById('book-list').style.display = 'none';
+        }
+
+        function showLoginForm() {
+            document.getElementById('registration-form').style.display = 'none';
+            document.getElementById('login-form').style.display = 'block';
+            document.getElementById('book-list').style.display = 'none';
+        }
+
+        function showBookList() {
+            document.getElementById('registration-form').style.display = 'none';
+            document.getElementById('login-form').style.display = 'none';
+            document.getElementById('book-list').style.display = 'block';
+        }
+    </script>
+</head>
+<body onload="showRegistrationForm()">
+
+    <!-- Registration Form -->
+    <div id="registration-form">
+        <h1>Registration Form</h1>
+        <form onsubmit="showLoginForm(); return false;">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+            <label for="email">Email</label>
+            <input type="text" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <!-- Login Page -->
+    <div id="login-form">
+        <h1>Login Page</h1>
+        <form onsubmit="showBookList(); return false;">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <!-- Book List -->
+    <div id="book-list">
+        <h1>Book List</h1>
+        <div class="book">
+            <h3>Book 1</h3>
+            <p>Author: John Doe</p>
+            <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+
+        <!-- Add 99 more book entries here -->
+
+        <div class="book">
+            <h3>Book 2</h3>
+            <p>Author: Jane Smith</p>
+            <p>Description: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+
+        <!-- Add 98 more book entries here -->
+
+    </div>
+
+</body>
+</html>
