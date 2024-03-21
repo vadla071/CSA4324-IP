@@ -1,0 +1,55 @@
+<?php
+// Sample PHP code for a Library Management System
+
+class Book {
+    public $title;
+    public $author;
+    public $isbn;
+    public $availability;
+
+    public function __construct($title, $author, $isbn, $availability) {
+        $this->title = $title;
+        $this->author = $author;
+        $this->isbn = $isbn;
+        $this->availability = $availability;
+    }
+}
+
+class Library {
+    private $books = [];
+
+    public function addBook($book) {
+        $this->books[] = $book;
+    }
+
+    public function removeBook($isbn) {
+        foreach ($this->books as $key => $book) {
+            if ($book->isbn === $isbn) {
+                unset($this->books[$key]);
+                break;
+            }
+        }
+    }
+
+    public function displayBooks() {
+        foreach ($this->books as $book) {
+            echo "Title: " . $book->title . "<br>";
+            echo "Author: " . $book->author . "<br>";
+            echo "ISBN: " . $book->isbn . "<br>";
+            echo "Availability: " . ($book->availability ? 'Available' : 'Not Available') . "<br><br>";
+        }
+    }
+}
+
+// Sample usage of the classes
+$library = new Library();
+
+$book1 = new Book('The Great Gatsby', 'F. Scott Fitzgerald', '9780743273565', true);
+$book2 = new Book('To Kill a Mockingbird', 'Harper Lee', '0061120081', false);
+
+$library->addBook($book1);
+$library->addBook($book2);
+
+echo "<h2>Library Books:</h2>";
+$library->displayBooks();
+?>
