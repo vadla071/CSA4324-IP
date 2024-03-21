@@ -1,0 +1,38 @@
+// Sample JavaScript code for a Library Management System
+
+// Function to validate book information form
+function validateBookForm() {
+    let title = document.getElementById('title').value;
+    let author = document.getElementById('author').value;
+    let isbn = document.getElementById('isbn').value;
+
+    if (title === '' || author === '' || isbn === '') {
+        alert('Please fill in all fields');
+        return false;
+    }
+
+    return true;
+}
+
+// Function to display a message when a book is borrowed
+function borrowBook(bookId) {
+    let book = document.getElementById(bookId);
+    book.innerHTML = 'Borrowed';
+    book.style.color = 'red';
+}
+
+// Function to display a message when a book is returned
+function returnBook(bookId) {
+    let book = document.getElementById(bookId);
+    book.innerHTML = 'Available';
+    book.style.color = 'green';
+}
+
+// Sample usage of the functions
+document.getElementById('borrowBtn').addEventListener('click', function() {
+    borrowBook('book1');
+});
+
+document.getElementById('returnBtn').addEventListener('click', function() {
+    returnBook('book1');
+});
